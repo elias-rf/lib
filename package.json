@@ -1,0 +1,19 @@
+{
+  "bit": {
+    "componentsDefaultDirectory": "components/{name}",
+    "env": {},
+    "packageManager": "npm"
+  },
+  "dependencies": {
+    "date-fns": "^2.9.0"
+  },
+  "devDependencies": {},
+  "license": "MIT",
+  "main": "src",
+  "name": "lib",
+  "scripts": {
+    "lint": "eslint ./src --ext js",
+    "test": "jest"
+  },
+  "version": "1.0.0"
+}
