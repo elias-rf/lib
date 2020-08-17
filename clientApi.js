@@ -1,20 +1,20 @@
-import fetcher from './fetcher'
-import config from '../../luz-eterna/client/src/config'
+const config = require("../../luz-eterna/client/src/config");
+const fetcher = require("./fetcher");
 
 export const clientApi = async (query, variables) => {
   const rsp = await fetcher({
-    method: 'post',
+    method: "post",
     url: config.url,
     data: { query, variables },
-  })
-  return rsp
-}
+  });
+  return rsp;
+};
 
 export const gql = (strings, ...values) =>
   String.raw(strings, ...values)
-    .replace(/\n\s+/g, ' ')
-    .trim()
+    .replace(/\n\s+/g, " ")
+    .trim();
 
-export default clientApi
+module.exports = { clientApi, gql };
 
-window.clientApi = clientApi
+window.clientApi = clientApi;

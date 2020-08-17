@@ -1,4 +1,4 @@
-import { quartilExc } from './quartilExc';
+const quartilExc = require("./quartilExc");
 
 /**
  * Remove os outliers de uma lista e retorna a nova lista
@@ -13,3 +13,5 @@ export function removeOutliers(lista) {
   const maior = q3 + 1.5 * (q3 - q1);
   return lista.filter((vlr) => vlr > menor && vlr < maior);
 }
+
+module.exports = removeOutliers;

@@ -1,4 +1,4 @@
-import { clientApi, gql } from './clientApi';
+const { clientApi, gql } = require("./clientApi");
 
 async function getSchema(tableName) {
   const query = gql`
@@ -37,7 +37,7 @@ async function getSchema(tableName) {
   return res;
 }
 
-export default getSchema;
+module.exports = getSchema;
 
 // ($tableName: String)
 // (name: $tablename)

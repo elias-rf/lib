@@ -2,7 +2,7 @@
 /**
  * @module
  */
-import { somatorio } from './somatorio';
+import sum from './sum';
 
 /**
  * Calcula a média aritmetica de um array
@@ -12,5 +12,5 @@ import { somatorio } from './somatorio';
  * @returns {number} Média aritmetica
  */
 export function media(lista) {
-  return somatorio(lista) / lista.length;
+  return sum(lista) / lista.length;
 }

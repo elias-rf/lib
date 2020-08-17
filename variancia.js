@@ -1,8 +1,8 @@
 /**
  * @module
  */
-import { media } from './media';
-import { somatorio } from './somatorio';
+import average from "./average";
+import sum from "./sum";
 
 /**
  * Calcula a variância de uma lista de números
@@ -14,9 +14,6 @@ import { somatorio } from './somatorio';
  * @returns {number} Valor da variância
  */
 export function variancia(lista, usarPopulacao = false) {
-  const mediaArr = media(lista);
-  return (
-    somatorio(lista.map((vlr) => (vlr - mediaArr) ** 2)) /
-    (lista.length - (usarPopulacao ? 0 : 1))
-  );
+  const mediaArr = average(lista);
+  return sum(lista.map((vlr) => (vlr - mediaArr) ** 2)) / (lista.length - (usarPopulacao ? 0 : 1));
 }

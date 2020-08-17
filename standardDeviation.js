@@ -1,7 +1,7 @@
 /**
  * @module
  */
-import { variancia } from './variancia';
+const { variancia } = require("./variancia");
 
 /**
  * Calcula o desvio padrão de uma população ou amostrar
@@ -11,6 +11,8 @@ import { variancia } from './variancia';
  * @param {boolean} [usarPopulacao=false] Define se irá trabalhar com toda a população ou apenas uma amostra
  * @returns {number} Valor do desvio padrão
  */
-export function desvioPadrao(lista, usarPopulacao = false) {
+function standardDeviation(lista, usarPopulacao = false) {
   return Math.sqrt(variancia(lista, usarPopulacao));
 }
+
+module.exports = standardDeviation;
