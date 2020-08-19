@@ -1,4 +1,4 @@
-export class Emitter {
+class Emitter {
   constructor() {
     this.getNextUniqueId = this.getIdGenerator();
     this.subscriptions = {};
@@ -13,8 +13,7 @@ export class Emitter {
 
     return () => {
       delete this.subscriptions[eventType][id];
-      if (Object.keys(this.subscriptions[eventType]).length === 0)
-        delete this.subscriptions[eventType];
+      if (Object.keys(this.subscriptions[eventType]).length === 0) delete this.subscriptions[eventType];
     };
   }
 
@@ -27,16 +26,13 @@ export class Emitter {
 
     return () => {
       delete this.subscriptions[eventType][id];
-      if (Object.keys(this.subscriptions[eventType]).length === 0)
-        delete this.subscriptions[eventType];
+      if (Object.keys(this.subscriptions[eventType]).length === 0) delete this.subscriptions[eventType];
     };
   }
 
   emit(eventType, ...arg) {
-    if (this.subscriptions['*']) {
-      Object.keys(this.subscriptions['*']).forEach((key) =>
-        this.subscriptions['*'][key](eventType, ...arg)
-      );
+    if (this.subscriptions["*"]) {
+      Object.keys(this.subscriptions["*"]).forEach((key) => this.subscriptions["*"][key](eventType, ...arg));
     }
     if (!this.subscriptions[eventType]) {
       // console.error('Não há ouvinte para:', eventType)
@@ -47,8 +43,7 @@ export class Emitter {
       this.subscriptions[eventType][key](...arg);
       if (key < 0) {
         delete this.subscriptions[eventType][key];
-        if (Object.keys(this.subscriptions[eventType]).length === 0)
-          delete this.subscriptions[eventType];
+        if (Object.keys(this.subscriptions[eventType]).length === 0) delete this.subscriptions[eventType];
       }
     });
   }
@@ -79,12 +74,12 @@ export class Emitter {
   }
 }
 
-export const emitter = new Emitter();
+const emitter = new Emitter();
 
-if (process.env.NODE_ENV === 'development') {
-  emitter.on('*', (eventType, ...args) => {
-    console.log('EVENT:', eventType, args);
+if (process.env.NODE_ENV === "development") {
+  emitter.on("*", (eventType, ...args) => {
+    console.log("EVENT:", eventType, args);
   });
 }
 
-window.emitter = emitter;
+module.exports = { Emitter, emitter };

@@ -6,7 +6,7 @@ const quartilExc = require("./quartilExc");
  * @param {Array<number>} lista Lista de números para analisar e limpar
  * @returns {Array<number>} Lista com outliers removidos
  */
-export function removeOutliers(lista) {
+function removeOutliers(lista) {
   const q1 = quartilExc(lista, 1);
   const q3 = quartilExc(lista, 3);
   const menor = q1 - 1.5 * (q3 - q1);
