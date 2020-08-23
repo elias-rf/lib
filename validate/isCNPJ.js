@@ -1,4 +1,4 @@
-const dvCnpj = require('./dvCnpj')
+const dvCnpj = require("../dvCnpj");
 
 /**
  * Valida um cnpj
@@ -7,8 +7,8 @@ const dvCnpj = require('./dvCnpj')
  * @returns {boolean} True se for válido
  */
 function isCNPJ(cnpj) {
-  const dv = dvCnpj(cnpj)
-  return dv === cnpj.substr(-2, 2)
+  const dv = dvCnpj(cnpj);
+  return dv === cnpj.substr(-2, 2);
 }
 
-module.exports = isCNPJ
+module.exports = isCNPJ;

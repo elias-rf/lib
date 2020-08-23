@@ -7,6 +7,7 @@ const hash = require("./hash");
  * @param {string} original Senha criptografada
  * @return {boolean} True se a senha for correta
  */
-module.exports = function verify(password, original) {
-  return hash(password) === original;
+module.exports = async function verify(password, original, algoritm = "sha256") {
+  const passwordHash = await hash(password, algoritm);
+  return passwordHash === original;
 };
