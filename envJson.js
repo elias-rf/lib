@@ -6,19 +6,20 @@ const { merge, isEmpty } = require("lodash");
  * @param {*} env
  * @returns
  */
-const envJson = (env) => {
+const envJson = (name, env) => {
   return Object.entries(env).reduce((obj, [item, valor]) => {
-    const prp = item.split("_");
-    const rsp = prp.reduceRight((o, v) => {
-      if (isEmpty(o)) {
-        o[v] = valor;
-      } else {
-        o = { [v]: o };
-      }
-      return o;
-    }, {});
-    obj = merge(obj, rsp);
-
+    if (item.startsWith(`${name}.`)) {
+      const prp = item.split(".");
+      const rsp = prp.reduceRight((o, v) => {
+        if (isEmpty(o)) {
+          o[v] = valor;
+        } else {
+          o = { [v]: o };
+        }
+        return o;
+      }, {});
+      obj = merge(obj, rsp);
+    }
     return obj;
   }, {});
 };
