@@ -7,7 +7,7 @@ const crypto = require("crypto");
  * @param {string} algoritm 'sha256'
  * @return {string} retorna o salt$hash
  */
-module.exports = async function hash(text, algoritm) {
+module.exports = async function hash(text, algoritm = "sha256") {
   const h = crypto.createHash(algoritm);
   h.update(text);
   return h.digest("hex");
