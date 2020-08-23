@@ -8,6 +8,5 @@ const hash = require("./hash");
  * @return {boolean} True se a senha for correta
  */
 module.exports = function verify(password, original) {
-  console.log("verify -> hash(password)", hash(password));
   return hash(password) === original;
 };
