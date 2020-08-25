@@ -1,9 +1,9 @@
-const replaceKeysDeep = require('./replaceKeysDeep');
+const replaceKeysDeep = require("../replaceKeysDeep");
 
 function sortReplace(obj) {
   const keysMap = {
-    field: 'column',
-    order: 'order',
+    field: "column",
+    order: "order",
   };
   return replaceKeysDeep(obj, keysMap);
 }

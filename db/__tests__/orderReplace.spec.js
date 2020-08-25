@@ -1,4 +1,4 @@
-import sortReplace from "../orderReplace";
+const sortReplace = require("../orderReplace");
 
 describe("substitui ordem de query", () => {
   it("substituir", () => {

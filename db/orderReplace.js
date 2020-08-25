@@ -1,4 +1,4 @@
-const replaceKeysDeep = require("./replaceKeysDeep");
+const replaceKeysDeep = require("../replaceKeysDeep");
 
 function orderReplace(obj) {
   const keysMap = {

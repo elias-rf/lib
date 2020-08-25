@@ -1,4 +1,4 @@
-const httpStatus = require('./httpStatus');
+const httpStatus = require("./httpStatus");
 
 class HttpError extends Error {
   constructor(status, mensagem) {

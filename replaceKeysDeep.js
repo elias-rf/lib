@@ -1,4 +1,4 @@
-const { isArray, isObject, transform } = require("lodash");
+const { isArray, isObject } = require("lodash");
 
 /**
  * Altera os nomes das propriedades de um objeto

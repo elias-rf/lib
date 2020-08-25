@@ -6,20 +6,13 @@
  */
 const structureKnexType = (type) => {
   const types = {
-    boolean: "boolean",
-    datetime: "datetime",
-    date: "date",
-    time: "time",
-    timestamp: "timestamp",
-    decimal: "decimal",
-    float: "float",
     id: "string",
-    integer: "integer",
     password: "string",
-    string: "string",
-    text: "text",
   };
-  return types[type];
+  if (types.hasOwnProperty(type)) {
+    return types[type];
+  }
+  return type;
 };
 
 module.exports = structureKnexType;

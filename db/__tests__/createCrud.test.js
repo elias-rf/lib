@@ -3,11 +3,19 @@ const knexConnections = require("../knexConnections");
 const knexTest = require("../__fixtures__/knexTest");
 
 describe("Crud", () => {
+  const { local } = knexConnections({
+    local: {
+      client: "sqlite3",
+      connection: {
+        filename: "./mydb.sqlite",
+      },
+    },
+  });
   beforeAll(() => {
-    knexTest([knexConnections.local]);
+    knexTest([local]);
   });
 
-  const crudGeneric = crud([knexConnections.local], "user", "id");
+  const crudGeneric = crud(local, "user", "id");
   it("deve ler dados", async () => {
     const rec = await crudGeneric.read("100");
     expect(rec).toMatchObject({

@@ -1,5 +1,5 @@
 /**
- * converte os tipos da estrutura para tipos knex
+ * converte os tipos da estrutura para tipos GraphQL
  *
  * @param {string} type tipo na estrutura
  * @returns tipo knex

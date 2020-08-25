@@ -1,4 +1,4 @@
-const dateToString = require('./dateToString')
+const dateToString = require("./dateToString");
 
 /**
  *
@@ -8,7 +8,7 @@ const dateToString = require('./dateToString')
  * @returns {string} data formatada
  */
 function dateUsToString(date) {
-  return dateToString(date, 'yyyy-MM-dd')
+  return dateToString(date, "yyyy-MM-dd");
 }
 
-module.exports = dateUsToString
+module.exports = dateUsToString;

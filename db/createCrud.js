@@ -1,4 +1,3 @@
-// @ts-check
 const { whereFilter } = require("knex-filter-loopback");
 const filterReplace = require("./filterReplace");
 const sortReplace = require("./sortReplace");

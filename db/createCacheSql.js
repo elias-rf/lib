@@ -1,4 +1,4 @@
-const cacheDefault = require('./cache');
+const cacheDefault = require("../cache");
 
 /**
  * Cria um cacheSql que armazena queries em cache

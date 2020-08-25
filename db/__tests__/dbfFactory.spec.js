@@ -1,9 +1,9 @@
 const dbfFactory = require("../dbfFactory");
-const fs = require("../../jest/fs");
+const fs = require("fs");
 
 describe("dbfFactory", () => {
   it("deve criar um objecto de dados", () => {
-    const dbf = dbfFactory("", fs);
+    const dbf = dbfFactory(`${__dirname}/TESTE.dbf`, fs);
     expect(typeof dbf).toBe("object");
   });
 

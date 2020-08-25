@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
-const httpStatus = require("./httpStatus");
-const HttpError = require("./HttpError");
-const config = require("../config");
+const httpStatus = require("./net/httpStatus");
+const HttpError = require("./net/HttpError");
 
 /**
  * Decodifica o token de autorização
@@ -9,7 +8,7 @@ const config = require("../config");
  * @param authorization Header de autorização
  * @return {object} Objeto com dados do usuario decodificados do token
  */
-function decode(authorization) {
+function decode(authorization, secret) {
   let token = authorization;
   let user = {};
 
@@ -22,16 +21,16 @@ function decode(authorization) {
   }
 
   try {
-    user = jwt.verify(token, config.auth.secret);
+    user = jwt.verify(token, secret);
   } catch (err) {
     user = {};
   }
   return user;
 }
 
-function encode(user) {
-  return jwt.sign(user, config.auth.secret, {
-    expiresIn: config.auth.expiration,
+function encode(user, secret, expiration = "8h") {
+  return jwt.sign(user, secret, {
+    expiresIn: expiration,
   });
 }
 
