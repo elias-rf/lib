@@ -1,4 +1,4 @@
-const isObject = require('./isObject')
+const isObject = require("./validate/isObject");
 
 /**
  * Executa um merge de dois objetos
@@ -8,21 +8,21 @@ const isObject = require('./isObject')
  * @returns {Object} Novo objeto
  */
 function mergeDeep(target, source) {
-  let rsp = Object.assign({}, target)
+  let rsp = Object.assign({}, target);
   if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(key => {
+    Object.keys(source).forEach((key) => {
       if (isObject(source[key])) {
         if (!(key in target)) {
-          rsp = Object.assign({}, rsp, { [key]: source[key] })
+          rsp = Object.assign({}, rsp, { [key]: source[key] });
         } else {
-          rsp[key] = mergeDeep(target[key], source[key])
+          rsp[key] = mergeDeep(target[key], source[key]);
         }
       } else {
-        rsp = Object.assign({}, rsp, { [key]: source[key] })
+        rsp = Object.assign({}, rsp, { [key]: source[key] });
       }
-    })
+    });
   }
-  return rsp
+  return rsp;
 }
 
-module.exports = mergeDeep
+module.exports = mergeDeep;
